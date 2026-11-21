@@ -392,6 +392,3 @@ El detalle de la división del trabajo y de los commits está en [docs/PLAN_DE_T
 - [OWASP Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html): mensajes genéricos de login y almacenamiento de contraseñas.
 - **Asistente de IA (Claude, de Anthropic)**: se usó como apoyo para estructurar el proyecto, revisar buenas prácticas y redactar la documentación. El equipo revisó, ejecutó y comprende todo el código incorporado, y lo explica en el video.
 
-## Licencia
-
-Uso académico. Distribuido bajo licencia MIT.
