@@ -62,7 +62,24 @@ En las listas se añade `meta`:
 
 ---
 
-## Salud
+## Información y salud
+
+### `GET /`: público
+
+Punto de entrada: devuelve el nombre de la API, cómo autenticarse y la lista de rutas con su nivel de acceso. Abrir `http://localhost:3000/` en el navegador redirige aquí.
+
+**200 OK**
+
+```json
+{
+  "data": {
+    "nombre": "Catálogo de productos con favoritos y acceso por roles",
+    "documentacion": "README.md y docs/API.md del repositorio",
+    "autenticacion": "Authorization: Bearer <token> (se obtiene en POST /api/auth/login)",
+    "rutas": [ { "metodo": "GET", "ruta": "/api/salud", "acceso": "Público", "descripcion": "Estado de la API y de la base de datos" } ]
+  }
+}
+```
 
 ### `GET /salud`: público
 

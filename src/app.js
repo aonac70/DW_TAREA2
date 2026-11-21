@@ -22,6 +22,7 @@ export function crearApp() {
     app.use(morgan(env.esProduccion ? 'combined' : 'dev'));
   }
 
+  app.get('/', (_req, res) => res.redirect('/api')); // la raíz lleva a la descripción de la API
   app.use('/api', rutas);
 
   app.use(rutaNoEncontrada);

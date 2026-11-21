@@ -163,6 +163,7 @@ Prefijo: **`/api`**. Detalle completo de cuerpos, respuestas y errores en **[doc
 
 | Método | Ruta | Acceso | Propósito | Éxito | Errores posibles |
 |---|---|---|---|---|---|
+| GET | `/` | Público | Información de la API y lista de rutas (`GET /` en la raíz redirige aquí) | 200 | — |
 | GET | `/salud` | Público | Estado de la API y de la base de datos | 200 | 503 |
 | POST | `/auth/registro` | Público | Registrar un usuario (siempre rol `usuario`) | 201 | 400, 409, 422 |
 | POST | `/auth/login` | Público | Validar credenciales y emitir JWT | 200 | 400, 401, 422 |
