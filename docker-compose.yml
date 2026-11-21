@@ -1,0 +1,25 @@
+# PostgreSQL opcional con Docker (para quien no tenga PostgreSQL instalado).
+# Toma usuario, contraseña, base y puerto del archivo .env.
+#   docker compose up -d      → inicia la base de datos
+#   docker compose down       → la detiene (los datos se conservan en el volumen)
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: catalogo-api-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-catalogo}
+      POSTGRES_USER: ${DB_USER:-catalogo}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?Defina DB_PASSWORD en .env}
+    ports:
+      - "127.0.0.1:${DB_PORT:-5432}:5432"
+    volumes:
+      - catalogo_datos:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  catalogo_datos:

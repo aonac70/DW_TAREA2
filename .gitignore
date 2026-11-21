@@ -1,0 +1,24 @@
+# Dependencias
+node_modules/
+
+# Variables de entorno y secretos (solo se versiona .env.example)
+.env
+.env.*
+!.env.example
+
+# Entornos de Postman con valores reales (tokens, contraseñas)
+postman/*.local.json
+postman/*.local.postman_environment.json
+
+# Reportes generados por las pruebas
+reportes/
+
+# Registros
+*.log
+npm-debug.log*
+
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

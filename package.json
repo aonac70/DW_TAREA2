@@ -1,0 +1,47 @@
+{
+  "name": "catalogo-api",
+  "version": "1.0.0",
+  "description": "API REST de catálogo de productos con favoritos personales, autenticación JWT y autorización por roles (Node.js, Express y PostgreSQL).",
+  "type": "module",
+  "main": "src/server.js",
+  "private": true,
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:init": "node scripts/db-init.js",
+    "db:reset": "node scripts/db-init.js --reset",
+    "db:admin": "node scripts/crear-admin.js",
+    "db:setup": "npm run db:init && npm run db:admin",
+    "token:vencido": "node scripts/token-vencido.js",
+    "test:postman": "node scripts/pruebas-postman.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "api-rest",
+    "express",
+    "postgresql",
+    "jwt",
+    "roles"
+  ],
+  "author": "Integrante 1 <correo@ejemplo.com>, Integrante 2 <correo@ejemplo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.12.1",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "newman": "^6.2.3"
+  }
+}
