@@ -1,0 +1,37 @@
+-- =============================================================================
+-- Datos de ejemplo (ficticios): 10 productos en 4 categorías.
+-- Idempotente: si un producto con el mismo nombre ya existe, no se duplica.
+-- El administrador NO se crea aquí, sino con: npm run db:admin (lee las credenciales de .env).
+-- =============================================================================
+INSERT INTO productos (nombre, descripcion, categoria, precio) VALUES
+    ('Audífonos inalámbricos Aurora',
+     'Audífonos Bluetooth con cancelación de ruido y 30 horas de batería.',
+     'Tecnología', 59.90),
+    ('Teclado mecánico Orbit',
+     'Teclado compacto de 87 teclas con interruptores táctiles y retroiluminación.',
+     'Tecnología', 74.50),
+    ('Batería solar portátil Helio',
+     'Batería externa de 20 000 mAh con panel solar plegable.',
+     'Tecnología', 39.99),
+    ('Lámpara de escritorio Lumo',
+     'Lámpara LED regulable con tres temperaturas de color y puerto USB.',
+     'Hogar', 28.75),
+    ('Juego de sartenes Cocina Viva',
+     'Set de tres sartenes antiadherentes aptas para cocinas de inducción.',
+     'Hogar', 64.00),
+    ('Cafetera de goteo Amanecer',
+     'Cafetera programable de 12 tazas con jarra térmica.',
+     'Hogar', 45.30),
+    ('Botella térmica Cumbre',
+     'Botella de acero inoxidable de 750 ml que conserva la temperatura por 24 horas.',
+     'Deportes', 18.90),
+    ('Esterilla de yoga Equilibrio',
+     'Esterilla antideslizante de 6 mm con correa de transporte.',
+     'Deportes', 25.00),
+    ('Guía práctica de Node.js',
+     'Libro ficticio de introducción al desarrollo backend con JavaScript.',
+     'Libros', 32.40),
+    ('Bases de datos relacionales desde cero',
+     'Libro ficticio sobre modelado de datos, normalización y SQL.',
+     'Libros', 29.99)
+ON CONFLICT DO NOTHING;
