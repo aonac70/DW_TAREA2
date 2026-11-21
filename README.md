@@ -29,10 +29,10 @@ API REST construida con **Node.js + Express + PostgreSQL** que gestiona un catá
 
 ## Integrantes
 
-| Integrante | Usuario de GitHub | Responsabilidad principal |
+| Integrante | Usuario de GitHub | Responsabilidad principal | 
 |---|---|---|
-| `Apellido1 Nombre1` | `usuario-github-1` | Base de datos, CRUD de productos, validaciones |
-| `Apellido2 Nombre2` | [aonac70](https://github.com/aonac70) | Autenticación JWT, roles, favoritos, pruebas de seguridad |
+| Anthony Pataron | [anthonypataron2003](https://github.com/anthonypataron2003) | Base de datos, CRUD de productos, validaciones |
+| Ayrton Oña | [aonac70](https://github.com/aonac70) | Autenticación JWT, roles, favoritos, pruebas de seguridad |
 
 > Reemplacen los nombres entre comillas invertidas por los nombres completos antes de entregar.
 
