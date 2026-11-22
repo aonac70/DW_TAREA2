@@ -1,10 +1,6 @@
-/**
- * Esquemas de validación de productos.
- * Los campos no declarados (p. ej. "id" o "creadoEn") se descartan.
- */
+
 import { z, idDeRuta, textoObligatorio } from './comunes.js';
 
-/** Límite de la columna NUMERIC(10,2). */
 const PRECIO_MAXIMO = 99_999_999.99;
 
 const tieneMaximoDosDecimales = (valor) => Math.abs(valor * 100 - Math.round(valor * 100)) < 1e-9;
@@ -20,7 +16,6 @@ const precio = z
   .max(PRECIO_MAXIMO, `El campo 'precio' no puede superar ${PRECIO_MAXIMO}.`)
   .refine(tieneMaximoDosDecimales, "El campo 'precio' admite como máximo 2 decimales.");
 
-/** Cuerpo de POST /productos y PUT /productos/:id (PUT reemplaza el producto completo). */
 export const productoSchema = z.object({
   nombre: textoObligatorio('nombre', { min: 2, max: 120 }),
   descripcion: textoObligatorio('descripcion', { max: 1000 }),
@@ -28,12 +23,12 @@ export const productoSchema = z.object({
   precio,
 });
 
-/** Parámetro :id de la ruta. */
+
 export const idProductoParams = z.object({
   id: idDeRuta('id'),
 });
 
-/** Filtros opcionales de GET /productos. */
+
 export const filtroProductosQuery = z.object({
   categoria: z
     .string({ error: "El filtro 'categoria' debe indicarse una sola vez como texto." })
