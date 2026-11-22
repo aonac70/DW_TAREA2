@@ -1,10 +1,4 @@
-/**
- * Inicializa la base de datos: crea la base si no existe, aplica db/schema.sql
- * y carga los productos de ejemplo de db/seed.sql. Es idempotente.
- *
- *   npm run db:init    → crea/actualiza el esquema sin borrar datos.
- *   npm run db:reset   → BORRA las tablas y las vuelve a crear (no permitido en producción).
- */
+
 import { readFile } from 'node:fs/promises';
 import pg from 'pg';
 import { env } from '../src/config/env.js';
@@ -27,7 +21,6 @@ async function crearBaseDeDatos() {
   const cliente = new pg.Client(configuracion('postgres'));
   await cliente.connect();
   try {
-    // CREATE DATABASE no admite parámetros: el nombre se validó en config/env.js y además se escapa.
     await cliente.query(`CREATE DATABASE ${cliente.escapeIdentifier(env.db.nombre)}`);
   } finally {
     await cliente.end();
