@@ -1,8 +1,4 @@
--- =============================================================================
--- Datos de ejemplo (ficticios): 10 productos en 4 categorías.
--- Idempotente: si un producto con el mismo nombre ya existe, no se duplica.
--- El administrador NO se crea aquí, sino con: npm run db:admin (lee las credenciales de .env).
--- =============================================================================
+
 INSERT INTO productos (nombre, descripcion, categoria, precio) VALUES
     ('Audífonos inalámbricos Aurora',
      'Audífonos Bluetooth con cancelación de ruido y 30 horas de batería.',
