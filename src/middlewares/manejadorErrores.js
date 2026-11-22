@@ -1,13 +1,7 @@
-/**
- * Manejador central de errores. Toda respuesta de error tiene la forma:
- *   { "error": { "estado": 404, "codigo": "PRODUCTO_NO_ENCONTRADO", "mensaje": "...", "detalles"?: [...] } }
- *
- * Nunca se envían al cliente trazas (stack), sentencias SQL, secretos ni mensajes internos:
- * los errores inesperados responden 500 con un mensaje genérico y se registran solo en el servidor.
- */
+
 import { AppError } from '../utils/errores.js';
 
-/** Errores generados por express.json() (body-parser) antes de llegar a las rutas. */
+
 const ERRORES_CUERPO = {
   'entity.parse.failed': {
     estado: 400,
@@ -49,7 +43,7 @@ function normalizar(error) {
   return ERRORES_CUERPO[error?.type] ?? ERROR_INTERNO;
 }
 
-// Express reconoce un manejador de errores porque recibe 4 argumentos.
+
 export function manejadorErrores(error, req, res, next) {
   if (res.headersSent) {
     return next(error);
@@ -62,7 +56,7 @@ export function manejadorErrores(error, req, res, next) {
   }
 
   if (estado === 401) {
-    // RFC 6750: indica al cliente el esquema de autenticación esperado.
+  
     res.set('WWW-Authenticate', 'Bearer realm="catalogo-api"');
   }
 
