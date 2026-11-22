@@ -1,4 +1,4 @@
-# Normaliza los finales de línea en el repositorio (LF), sin importar el sistema operativo.
+
 * text=auto eol=lf
 
 *.png binary
