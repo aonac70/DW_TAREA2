@@ -1,12 +1,4 @@
-/**
- * Middleware de autenticación.
- *
- * 1. Exige la cabecera "Authorization: Bearer <token>".
- * 2. Verifica firma, algoritmo, emisor, audiencia y expiración del JWT.
- * 3. Deja la identidad verificada en req.usuario = { id, rol }.
- *
- * Las rutas protegidas usan SIEMPRE req.usuario.id; nunca un id enviado por el cliente.
- */
+
 import { LISTA_ROLES } from '../config/roles.js';
 import { noAutenticado } from '../utils/errores.js';
 import { TokenExpiredError, verificarToken } from '../utils/jwt.js';
@@ -41,7 +33,7 @@ export function autenticar(req, _res, next) {
     throw tokenInvalido();
   }
 
-  // Defensa adicional: el contenido firmado debe tener la forma esperada.
+
   const id = Number(contenido.sub);
   if (!Number.isSafeInteger(id) || id <= 0 || !LISTA_ROLES.includes(contenido.rol)) {
     throw tokenInvalido();
