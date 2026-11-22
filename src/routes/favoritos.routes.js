@@ -6,7 +6,6 @@ import { agregarFavoritoSchema, productoIdParams } from '../validators/favoritos
 
 const router = Router();
 
-// Todas las rutas de favoritos requieren un usuario autenticado (cualquier rol).
 router.use(autenticar);
 
 router.get('/', favoritosControlador.listar);
