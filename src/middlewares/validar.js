@@ -1,15 +1,4 @@
-/**
- * Middleware genérico de validación con esquemas Zod.
- *
- * Criterio de códigos de estado:
- *  - 400 Bad Request: la petición está mal formada → parámetros de ruta (:id) o filtros
- *    de consulta inválidos, o el cuerpo no es un objeto JSON.
- *  - 422 Unprocessable Entity: el cuerpo es un JSON bien formado, pero su contenido no
- *    cumple las reglas (campos obligatorios, vacíos, correo inválido, precio <= 0, etc.).
- *
- * Los datos ya validados y normalizados se guardan en req.validado.{params,query,body};
- * los controladores solo leen de ahí, nunca de req.body directamente.
- */
+
 import { datosInvalidos, solicitudInvalida } from '../utils/errores.js';
 
 const esObjetoPlano = (valor) =>
@@ -21,9 +10,7 @@ const aDetalles = (problemas) =>
     mensaje: problema.message,
   }));
 
-/**
- * @param {{ params?: import('zod').ZodType, query?: import('zod').ZodType, body?: import('zod').ZodType }} esquemas
- */
+
 export function validar(esquemas) {
   return (req, _res, next) => {
     const validado = {};
