@@ -1,6 +1,3 @@
-/**
- * Punto de entrada: verifica la base de datos, abre el puerto y gestiona el cierre ordenado.
- */
 import http from 'node:http';
 import { crearApp } from './app.js';
 import { env } from './config/env.js';
