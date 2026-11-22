@@ -1,7 +1,4 @@
-/**
- * Punto de entrada de la API (GET /api): describe el servicio y sus rutas,
- * útil para quien abre la URL base en el navegador.
- */
+
 import { responderOk } from '../utils/respuestas.js';
 
 const RUTAS = Object.freeze([
@@ -18,7 +15,7 @@ const RUTAS = Object.freeze([
   { metodo: 'DELETE', ruta: '/api/favoritos/:productoId', acceso: 'Autenticado', descripcion: 'Quitar un producto de sus favoritos' },
 ]);
 
-/** GET /api */
+
 export function informacionApi(_req, res) {
   responderOk(res, {
     nombre: 'Catálogo de productos con favoritos y acceso por roles',
