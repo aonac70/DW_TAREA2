@@ -12,14 +12,14 @@ import {
 
 const router = Router();
 
-/** Cadena de seguridad para modificar el catálogo: token válido (401) + rol administrador (403). */
+
 const soloAdministrador = [autenticar, autorizar(ROLES.ADMINISTRADOR)];
 
-// Público: consulta del catálogo sin iniciar sesión.
+
 router.get('/', validar({ query: filtroProductosQuery }), productosControlador.listar);
 router.get('/:id', validar({ params: idProductoParams }), productosControlador.obtener);
 
-// Administrador: crear, actualizar y eliminar.
+
 router.post('/', soloAdministrador, validar({ body: productoSchema }), productosControlador.crear);
 router.put(
   '/:id',
