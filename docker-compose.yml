@@ -1,7 +1,4 @@
-# PostgreSQL opcional con Docker (para quien no tenga PostgreSQL instalado).
-# Toma usuario, contraseña, base y puerto del archivo .env.
-#   docker compose up -d      → inicia la base de datos
-#   docker compose down       → la detiene (los datos se conservan en el volumen)
+
 services:
   db:
     image: postgres:16-alpine
