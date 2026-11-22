@@ -1,19 +1,3 @@
-/**
- * Ejecuta la colección de Postman con Newman y demuestra la persistencia con un reinicio real:
- *
- *   Fase 1  → inicia el servidor (proceso Node.js nuevo) y ejecuta todas las carpetas
- *             excepto "Persistencia tras reinicio".
- *   Reinicio→ detiene ese proceso y arranca uno nuevo (misma base de datos).
- *   Fase 2  → ejecuta la carpeta "Persistencia tras reinicio" con las variables de la fase 1
- *             (ids de productos, correos, etc.) y comprueba que los registros siguen ahí.
- *
- *   npm run test:postman
- *
- * Requisitos: PostgreSQL en ejecución, `npm run db:setup` ejecutado y las variables
- * ADMIN_CORREO / ADMIN_CONTRASENA definidas en .env. Usa el puerto PUERTO_PRUEBAS (3100 por
- * defecto) para no chocar con un servidor que ya esté corriendo en PORT.
- * Al final escribe un resumen en reportes/resultados-pruebas.md.
- */
 import { spawn } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -78,8 +62,6 @@ function ejecutarNewman(opciones) {
     );
   });
 }
-
-/** Extrae, por cada petición ejecutada, el código HTTP obtenido y el resultado de sus aserciones. */
 function resumirEjecuciones(resumen, fase) {
   return resumen.run.executions.map((ejecucion) => {
     const aserciones = ejecucion.assertions ?? [];
