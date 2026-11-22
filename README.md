@@ -2,7 +2,7 @@
 
 API REST construida con **Node.js + Express + PostgreSQL** que gestiona un catálogo de productos y la lista de favoritos personal de cada usuario. Usa **autenticación JWT** con vencimiento y **autorización por roles** (`usuario` y `administrador`). Las pruebas se ejecutan con una colección de **Postman** que tiene aserciones en cada petición. El script `npm run test:postman` corre esa colección con Newman y reinicia el servidor a mitad de la ejecución para comprobar la persistencia.
 
-> Proyecto académico. Todos los datos de ejemplo (productos, correos, nombres) son ficticios.
+
 
 ---
 
