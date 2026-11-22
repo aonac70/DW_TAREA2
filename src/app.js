@@ -1,7 +1,4 @@
-/**
- * Configuración de la aplicación Express (sin abrir el puerto).
- * Separar app.js de server.js permite reutilizar la app en pruebas y scripts.
- */
+
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
@@ -14,15 +11,15 @@ import rutas from './routes/index.js';
 export function crearApp() {
   const app = express();
 
-  app.use(helmet()); // cabeceras de seguridad (y oculta X-Powered-By)
+  app.use(helmet()); 
   app.use(cors({ origin: env.cors.origen }));
-  app.use(express.json({ limit: '10kb' })); // limita el tamaño del cuerpo
+  app.use(express.json({ limit: '10kb' }));
 
   if (env.nodeEnv !== 'test') {
     app.use(morgan(env.esProduccion ? 'combined' : 'dev'));
   }
 
-  app.get('/', (_req, res) => res.redirect('/api')); // la raíz lleva a la descripción de la API
+  app.get('/', (_req, res) => res.redirect('/api')); 
   app.use('/api', rutas);
 
   app.use(rutaNoEncontrada);
