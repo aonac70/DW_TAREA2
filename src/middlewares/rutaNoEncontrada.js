@@ -1,4 +1,4 @@
-/** Responde 404 en formato JSON para cualquier ruta que no exista. */
+
 import { noEncontrado } from '../utils/errores.js';
 
 export function rutaNoEncontrada(req, _res, next) {
