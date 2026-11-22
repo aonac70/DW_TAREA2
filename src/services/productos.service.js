@@ -1,6 +1,4 @@
-/**
- * Reglas de negocio del catálogo de productos.
- */
+
 import { CODIGOS_PG, esErrorPg } from '../db/erroresPg.js';
 import * as productosRepositorio from '../repositories/productos.repository.js';
 import { conflicto, noEncontrado } from '../utils/errores.js';
@@ -8,7 +6,7 @@ import { conflicto, noEncontrado } from '../utils/errores.js';
 const productoNoEncontrado = () =>
   noEncontrado('PRODUCTO_NO_ENCONTRADO', 'El producto solicitado no existe.');
 
-/** Traduce las violaciones de restricciones de la base de datos a errores HTTP. */
+
 function traducirErrorDeEscritura(error) {
   if (esErrorPg(error, CODIGOS_PG.VIOLACION_UNICA, 'productos_nombre_unico')) {
     return conflicto('PRODUCTO_DUPLICADO', 'Ya existe un producto con ese nombre.');
@@ -45,10 +43,7 @@ export async function actualizar(id, datos) {
   return producto;
 }
 
-/**
- * Elimina el producto. Decisión de diseño: sus favoritos se eliminan en cascada
- * (ON DELETE CASCADE en db/schema.sql), así no quedan favoritos huérfanos.
- */
+
 export async function eliminar(id) {
   const eliminado = await productosRepositorio.eliminar(id);
   if (!eliminado) throw productoNoEncontrado();
