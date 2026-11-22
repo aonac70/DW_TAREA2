@@ -1,12 +1,6 @@
-/**
- * Esquemas de validación de autenticación.
- *
- * Solo se aceptan los campos declarados: cualquier otro (por ejemplo "rol") se descarta
- * antes de llegar al servicio, por lo que el registro público no puede asignar roles.
- */
+
 import { z, correo, textoObligatorio } from './comunes.js';
 
-/** bcrypt solo procesa los primeros 72 bytes de la contraseña. */
 const BYTES_MAXIMOS_BCRYPT = 72;
 
 const contrasenaNueva = z
