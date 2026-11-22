@@ -1,11 +1,4 @@
-/**
- * Carga y valida las variables de entorno una sola vez al iniciar.
- *
- * - Lee el archivo .env de la raíz del proyecto (si existe) con process.loadEnvFile(),
- *   disponible en Node.js >= 20.12. Las variables ya definidas en el sistema tienen prioridad.
- * - Si falta una variable obligatoria o tiene un formato inválido, el proceso termina
- *   con un mensaje claro (fail fast) en lugar de fallar más tarde de forma confusa.
- */
+
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
@@ -57,7 +50,7 @@ const esquemaEntorno = z.object({
   CORS_ORIGIN: z.string().min(1).default('*'),
 });
 
-// Una variable definida pero vacía (VAR=) se trata como no definida para aplicar el valor por defecto.
+
 const variables = Object.fromEntries(
   Object.entries(process.env).filter(([, valor]) => valor !== ''),
 );
