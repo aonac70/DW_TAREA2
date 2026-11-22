@@ -1,4 +1,4 @@
-/** Enrutador principal montado en /api. */
+
 import { Router } from 'express';
 import { informacionApi } from '../controllers/api.controller.js';
 import { consultarSalud } from '../controllers/salud.controller.js';
